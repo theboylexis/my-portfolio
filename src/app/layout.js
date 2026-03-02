@@ -16,24 +16,24 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: 'Alex Marfo — Backend Developer',
+  title: 'Alex Marfo — Junior Backend Engineer',
   description:
-    'Junior backend developer specializing in Node.js, Express, and building production-grade APIs. View my projects, skills, and get in touch.',
-  keywords: ['backend developer', 'Node.js', 'Express', 'API development', 'portfolio'],
+    'Junior backend engineer specializing in Node.js, Express, and building production-grade APIs. View my projects, skills, and get in touch.',
+  keywords: ['backend engineer', 'Node.js', 'Express', 'API development', 'portfolio'],
   authors: [{ name: 'Alex Marfo' }],
   openGraph: {
-    title: 'Alex Marfo — Backend Developer',
+    title: 'Alex Marfo — Junior Backend Engineer',
     description:
-      'Junior backend developer specializing in Node.js, Express, and building production-grade APIs.',
+      'Junior backend engineer specializing in Node.js, Express, and building production-grade APIs.',
     type: 'website',
     locale: 'en_US',
     siteName: 'Alex Marfo',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Alex Marfo — Backend Developer',
+    title: 'Alex Marfo — Junior Backend Engineer',
     description:
-      'Junior backend developer specializing in Node.js, Express, and building production-grade APIs.',
+      'Junior backend engineer specializing in Node.js, Express, and building production-grade APIs.',
   },
 };
 

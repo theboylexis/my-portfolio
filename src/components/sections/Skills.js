@@ -1,0 +1,87 @@
+import Image from 'next/image';
+import styles from './Skills.module.css';
+
+const skills = [
+    {
+        category: 'Languages & Runtime',
+        items: [
+            { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg' },
+            { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg' },
+            { name: 'SQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg' },
+            { name: 'HTML', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg' },
+            { name: 'CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg' },
+        ],
+    },
+    {
+        category: 'Frameworks & Libraries',
+        items: [
+            { name: 'Express.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg' },
+            { name: 'Next.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg' },
+            { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
+            { name: 'Socket.io', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/socketio/socketio-original.svg' },
+        ],
+    },
+    {
+        category: 'Databases & Caching',
+        items: [
+            { name: 'PostgreSQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
+            { name: 'MongoDB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg' },
+            { name: 'Redis', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg' },
+            { name: 'Prisma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg' },
+        ],
+    },
+    {
+        category: 'Tools & DevOps',
+        items: [
+            { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg' },
+            { name: 'GitHub Actions', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-original.svg' },
+            { name: 'Docker', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg' },
+            { name: 'Postman', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg' },
+            { name: 'Vercel', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg' },
+        ],
+    },
+    {
+        category: 'APIs & Integration',
+        items: [
+            { name: 'REST APIs' },
+            { name: 'OpenAI API' },
+            { name: 'Cloudinary', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cloudinary/cloudinary-original.svg' },
+            { name: 'JWT Auth' },
+        ],
+    },
+];
+
+export default function Skills() {
+    return (
+        <section id="skills" className={styles.skills}>
+            <p className={styles.label}>skills</p>
+            <h2 className={styles.heading}>Technologies I work with</h2>
+
+            <div className={styles.categories}>
+                {skills.map((group) => (
+                    <div key={group.category} className={styles.category}>
+                        <h3 className={styles.categoryTitle}>{group.category}</h3>
+                        <div className={styles.badges}>
+                            {group.items.map((item) => (
+                                <span key={item.name} className={styles.badge}>
+                                    {item.icon && (
+                                        <span className={styles.badgeIcon}>
+                                            <Image
+                                                src={item.icon}
+                                                alt={item.name}
+                                                width={18}
+                                                height={18}
+                                                unoptimized
+                                            />
+                                        </span>
+                                    )}
+                                    {item.name}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </section>
+    );
+}

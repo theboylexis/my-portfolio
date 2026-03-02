@@ -22,7 +22,7 @@ export default function Footer() {
                     </a>
 
                     <a
-                        href="https://linkedin.com/in/"
+                        href="https://linkedin.com/in/alexmarfoappiah"
                         target="_blank"
                         rel="noopener noreferrer"
                         className={styles.socialLink}
@@ -34,7 +34,7 @@ export default function Footer() {
                     </a>
 
                     <a
-                        href="mailto:hello@alexmarfo.dev"
+                        href="mailto:alexmarfo509@gmail.com"
                         className={styles.socialLink}
                         aria-label="Email"
                     >

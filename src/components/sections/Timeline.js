@@ -1,0 +1,54 @@
+import styles from './Timeline.module.css';
+
+const timelineItems = [
+    {
+        date: '2026 — Present',
+        title: 'Building portfolio projects',
+        description:
+            'Developing production-grade applications to demonstrate backend engineering skills. Currently building an AI-powered document API and this portfolio site.',
+        current: true,
+    },
+    {
+        date: 'Feb 2026',
+        title: 'Smart Doc API — Complete',
+        description:
+            'Built a full REST API with JWT auth, file uploads, background job processing, Redis caching, and OpenAI GPT-4 integration. Set up CI/CD with GitHub Actions.',
+    },
+    {
+        date: 'Jan 2026',
+        title: 'Node.js & Express deep dive',
+        description:
+            'Completed comprehensive training on Node.js, Express, REST APIs, authentication patterns, and database integration with PostgreSQL and MongoDB.',
+    },
+    {
+        date: '2025',
+        title: 'JavaScript fundamentals',
+        description:
+            'Mastered core JavaScript — async/await, closures, prototypes, ES6+ features. Built small projects to solidify understanding.',
+    },
+];
+
+export default function Timeline() {
+    return (
+        <section className={styles.timeline}>
+            <p className={styles.label}>journey</p>
+            <h2 className={styles.heading}>How I got here</h2>
+
+            <div className={styles.items}>
+                {timelineItems.map((item, i) => (
+                    <div
+                        key={i}
+                        className={`${styles.item} ${item.current ? styles.itemCurrent : ''}`}
+                    >
+                        <div className={styles.dot} />
+                        <div className={styles.content}>
+                            <p className={styles.date}>{item.date}</p>
+                            <h3 className={styles.title}>{item.title}</h3>
+                            <p className={styles.desc}>{item.description}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </section>
+    );
+}

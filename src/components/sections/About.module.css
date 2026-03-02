@@ -1,0 +1,40 @@
+.about {
+    padding: var(--space-20) 0;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding-left: var(--page-padding);
+    padding-right: var(--page-padding);
+}
+
+.label {
+    font-size: var(--text-sm);
+    font-family: var(--font-mono);
+    color: var(--color-text-tertiary);
+    margin-bottom: var(--space-4);
+}
+
+.heading {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-6);
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+}
+
+.body p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    max-width: 600px;
+}
+
+.highlight {
+    color: var(--color-text-primary);
+    font-weight: var(--font-weight-medium);
+}
