@@ -8,6 +8,10 @@ export default function Footer() {
                     © {new Date().getFullYear()} Alex Marfo
                 </span>
 
+                <span className={styles.builtWith}>
+                    Built with Next.js · Styled with vanilla CSS
+                </span>
+
                 <div className={styles.socials}>
                     <a
                         href="https://github.com/theboylexis"

@@ -5,7 +5,7 @@ const timelineItems = [
         date: '2026 — Present',
         title: 'Building portfolio projects',
         description:
-            'Developing production-grade applications to demonstrate backend engineering skills. Currently building an AI-powered document API and this portfolio site.',
+            'Developing production-grade applications to demonstrate backend engineering skills. Currently building Smart Doc API and this portfolio site.',
         current: true,
     },
     {
