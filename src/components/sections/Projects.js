@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import styles from './Projects.module.css';
 
 const projects = [
@@ -8,6 +9,7 @@ const projects = [
         tags: ['Node.js', 'Express', 'PostgreSQL', 'Prisma', 'Redis', 'BullMQ', 'OpenAI API', 'Socket.io'],
         github: 'https://github.com/theboylexis/smart-doc-api',
         status: 'live',
+        preview: '/images/smart-doc-preview.png',
     },
     {
         title: 'FinLens AI',
@@ -17,6 +19,7 @@ const projects = [
         github: 'https://github.com/theboylexis/finlens',
         live: 'https://finlens-beta.vercel.app/',
         status: 'live',
+        preview: '/images/finlens-preview.png',
     },
     {
         title: 'Portfolio Website',
@@ -55,48 +58,61 @@ export default function Projects() {
             <div className={styles.grid}>
                 {projects.map((project) => (
                     <article key={project.title} className={styles.card}>
-                        <div className={styles.cardHeader}>
-                            <h3 className={styles.cardTitle}>{project.title}</h3>
-                            <div className={styles.cardLinks}>
-                                {project.github && (
-                                    <a
-                                        href={project.github}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className={styles.cardLink}
-                                        aria-label={`${project.title} GitHub`}
-                                    >
-                                        <GithubIcon />
-                                    </a>
-                                )}
-                                {project.live && (
-                                    <a
-                                        href={project.live}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className={styles.cardLink}
-                                        aria-label={`${project.title} live demo`}
-                                    >
-                                        <ExternalIcon />
-                                    </a>
-                                )}
+                        {project.preview && (
+                            <div className={styles.previewWrapper}>
+                                <Image
+                                    src={project.preview}
+                                    alt={`${project.title} preview`}
+                                    width={680}
+                                    height={380}
+                                    className={styles.previewImage}
+                                />
                             </div>
-                        </div>
+                        )}
+                        <div className={styles.cardBody}>
+                            <div className={styles.cardHeader}>
+                                <h3 className={styles.cardTitle}>{project.title}</h3>
+                                <div className={styles.cardLinks}>
+                                    {project.github && (
+                                        <a
+                                            href={project.github}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className={styles.cardLink}
+                                            aria-label={`${project.title} GitHub`}
+                                        >
+                                            <GithubIcon />
+                                        </a>
+                                    )}
+                                    {project.live && (
+                                        <a
+                                            href={project.live}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className={styles.cardLink}
+                                            aria-label={`${project.title} live demo`}
+                                        >
+                                            <ExternalIcon />
+                                        </a>
+                                    )}
+                                </div>
+                            </div>
 
-                        <p className={styles.cardDesc}>{project.description}</p>
+                            <p className={styles.cardDesc}>{project.description}</p>
 
-                        <div className={styles.tags}>
-                            {project.status === 'live' && (
-                                <span className={styles.statusLive}>● live</span>
-                            )}
-                            {project.status === 'in-progress' && (
-                                <span className={styles.statusProgress}>● in progress</span>
-                            )}
-                            {project.tags.map((tag) => (
-                                <span key={tag} className={styles.tag}>
-                                    {tag}
-                                </span>
-                            ))}
+                            <div className={styles.tags}>
+                                {project.status === 'live' && (
+                                    <span className={styles.statusLive}>● live</span>
+                                )}
+                                {project.status === 'in-progress' && (
+                                    <span className={styles.statusProgress}>● in progress</span>
+                                )}
+                                {project.tags.map((tag) => (
+                                    <span key={tag} className={styles.tag}>
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
                         </div>
                     </article>
                 ))}

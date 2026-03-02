@@ -15,6 +15,35 @@
   position: relative;
 }
 
+.heroContent {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-8);
+}
+
+.heroText {
+  flex: 1;
+}
+
+.avatarWrapper {
+  flex-shrink: 0;
+  position: relative;
+}
+
+.avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--color-border);
+  transition: border-color var(--transition-base);
+}
+
+.avatar:hover {
+  border-color: var(--color-text-tertiary);
+}
+
 .name {
   font-size: var(--text-4xl);
   font-weight: var(--font-weight-semibold);
@@ -94,5 +123,16 @@
 
   .hero {
     padding: var(--space-16) 0 var(--space-12);
+  }
+
+  .heroContent {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: var(--space-6);
+  }
+
+  .avatar {
+    width: 120px;
+    height: 120px;
   }
 }

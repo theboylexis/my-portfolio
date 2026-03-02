@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import Image from 'next/image';
 import styles from './page.module.css';
 import About from '@/components/sections/About';
 import Projects from '@/components/sections/Projects';
@@ -30,24 +31,38 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <section className={`${styles.hero} hero-stagger`}>
-        <h1 className={styles.name}>Alex Marfo Appiah</h1>
-        <p className={styles.role}>
-          Junior backend engineer building production-grade APIs with Node.js, Express, and PostgreSQL. I care about clean architecture, real-world patterns, and shipping things that work.
-        </p>
-        <p className={styles.location}>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-            <circle cx="12" cy="10" r="3" />
-          </svg>
-          Kumasi, Ghana
-        </p>
-        <div className={styles.ctas}>
-          <a href="#projects" className={styles.btnPrimary}>
-            View Projects
-          </a>
-          <a href="#contact" className={styles.btnSecondary}>
-            Get in Touch
-          </a>
+        <div className={styles.heroContent}>
+          <div className={styles.heroText}>
+            <h1 className={styles.name}>Alex Marfo Appiah</h1>
+            <p className={styles.role}>
+              Junior backend engineer building production-grade APIs with Node.js, Express, and PostgreSQL. I care about clean architecture, real-world patterns, and shipping things that work.
+            </p>
+            <p className={styles.location}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              Kumasi, Ghana
+            </p>
+            <div className={styles.ctas}>
+              <a href="#projects" className={styles.btnPrimary}>
+                View Projects
+              </a>
+              <a href="#contact" className={styles.btnSecondary}>
+                Get in Touch
+              </a>
+            </div>
+          </div>
+          <div className={styles.avatarWrapper}>
+            <Image
+              src="/images/avatar.jpeg"
+              alt="Alex Marfo Appiah"
+              width={250}
+              height={250}
+              className={styles.avatar}
+              priority
+            />
+          </div>
         </div>
       </section>
 
