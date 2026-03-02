@@ -1,0 +1,103 @@
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--nav-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    z-index: 100;
+    transition: background-color var(--transition-base),
+        border-color var(--transition-base);
+}
+
+.navInner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: var(--max-width);
+    padding: 0 var(--page-padding);
+}
+
+.logo {
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    letter-spacing: -0.02em;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    list-style: none;
+}
+
+.link {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    transition: color var(--transition-fast);
+    font-weight: var(--font-weight-normal);
+}
+
+.link:hover {
+    color: var(--color-text-primary);
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+/* Mobile menu */
+.menuBtn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text-primary);
+    padding: var(--space-2);
+}
+
+.mobileMenu {
+    display: none;
+}
+
+@media (max-width: 640px) {
+    .links {
+        display: none;
+    }
+
+    .menuBtn {
+        display: flex;
+    }
+
+    .mobileMenu {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: var(--nav-height);
+        left: 0;
+        right: 0;
+        background: var(--color-bg);
+        border-bottom: 1px solid var(--color-border);
+        padding: var(--space-4) var(--page-padding);
+        gap: var(--space-4);
+        z-index: 99;
+    }
+
+    .mobileLink {
+        font-size: var(--text-base);
+        color: var(--color-text-secondary);
+        padding: var(--space-2) 0;
+    }
+
+    .mobileLink:hover {
+        color: var(--color-text-primary);
+    }
+}
