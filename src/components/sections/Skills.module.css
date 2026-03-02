@@ -34,11 +34,12 @@
 }
 
 .categoryTitle {
-    font-size: var(--text-sm);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-text-primary);
+    font-size: var(--text-xs);
+    font-family: var(--font-mono);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
+    color: var(--color-text-tertiary);
+    font-weight: var(--font-weight-medium);
 }
 
 .badges {
@@ -51,31 +52,31 @@
     display: inline-flex;
     align-items: center;
     gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
     font-size: var(--text-sm);
-    font-weight: var(--font-weight-medium);
     color: var(--color-text-primary);
     background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    padding: var(--space-2) var(--space-4);
-    border-radius: 999px;
-    transition: border-color var(--transition-fast), transform var(--transition-fast);
+    transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+    cursor: default;
 }
 
 .badge:hover {
+    transform: translateY(-2px);
     border-color: var(--color-text-tertiary);
-    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme='dark'] .badge:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .badgeIcon {
-    width: 18px;
-    height: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-}
-
-.badgeIcon img {
     width: 18px;
     height: 18px;
+    flex-shrink: 0;
 }

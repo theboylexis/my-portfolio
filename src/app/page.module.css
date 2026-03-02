@@ -12,6 +12,7 @@
   width: 100%;
   padding-left: var(--page-padding);
   padding-right: var(--page-padding);
+  position: relative;
 }
 
 .name {

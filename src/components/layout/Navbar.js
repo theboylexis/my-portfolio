@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ThemeToggle from './ThemeToggle';
 import styles from './Navbar.module.css';
 
@@ -13,18 +13,45 @@ const navLinks = [
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState('');
+
+    useEffect(() => {
+        const sectionIds = navLinks.map((link) => link.href.slice(1));
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActiveSection(entry.target.id);
+                    }
+                });
+            },
+            { rootMargin: '-40% 0px -55% 0px' }
+        );
+
+        sectionIds.forEach((id) => {
+            const el = document.getElementById(id);
+            if (el) observer.observe(el);
+        });
+
+        return () => observer.disconnect();
+    }, []);
 
     return (
         <nav className={styles.nav}>
             <div className={styles.navInner}>
                 <a href="#" className={styles.logo}>
-                    alex marfo
+                    Alex Marfo Appiah
                 </a>
 
                 <ul className={styles.links}>
                     {navLinks.map((link) => (
                         <li key={link.href}>
-                            <a href={link.href} className={styles.link}>
+                            <a
+                                href={link.href}
+                                className={`${styles.link} ${activeSection === link.href.slice(1) ? styles.linkActive : ''
+                                    }`}
+                            >
                                 {link.label}
                             </a>
                         </li>
@@ -60,7 +87,10 @@ export default function Navbar() {
                         <a
                             key={link.href}
                             href={link.href}
-                            className={styles.mobileLink}
+                            className={`${styles.mobileLink} ${activeSection === link.href.slice(1)
+                                ? styles.mobileLinkActive
+                                : ''
+                                }`}
                             onClick={() => setMenuOpen(false)}
                         >
                             {link.label}

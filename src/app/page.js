@@ -29,8 +29,8 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
-      <section className={styles.hero}>
-        <h1 className={styles.name}>Alex Marfo</h1>
+      <section className={`${styles.hero} hero-stagger`}>
+        <h1 className={styles.name}>Alex Marfo Appiah</h1>
         <p className={styles.role}>
           Junior backend engineer building production-grade APIs with Node.js, Express, and PostgreSQL. I care about clean architecture, real-world patterns, and shipping things that work.
         </p>

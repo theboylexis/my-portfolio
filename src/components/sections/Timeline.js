@@ -21,6 +21,12 @@ const timelineItems = [
             'Completed comprehensive training on Node.js, Express, REST APIs, authentication patterns, and database integration with PostgreSQL and MongoDB.',
     },
     {
+        date: 'Dec 2025',
+        title: 'FinLens AI — Complete',
+        description:
+            'Built an AI-powered personal finance app with smart expense categorization, natural language queries, and budget tracking using FastAPI, Next.js, and Google Gemini.',
+    },
+    {
         date: '2025',
         title: 'JavaScript fundamentals',
         description:

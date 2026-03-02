@@ -5,7 +5,7 @@ export default function Footer() {
         <footer className={styles.footer}>
             <div className={styles.footerInner}>
                 <span className={styles.copy}>
-                    © {new Date().getFullYear()} Alex Marfo
+                    © {new Date().getFullYear()} Alex Marfo Appiah
                 </span>
 
                 <span className={styles.builtWith}>
