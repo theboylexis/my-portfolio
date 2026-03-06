@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import ThemeToggle from './ThemeToggle';
+import { motion } from 'framer-motion';
 import styles from './Navbar.module.css';
 
 const navLinks = [
@@ -14,6 +14,7 @@ const navLinks = [
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('');
+    const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
         const sectionIds = navLinks.map((link) => link.href.slice(1));
@@ -34,14 +35,27 @@ export default function Navbar() {
             if (el) observer.observe(el);
         });
 
-        return () => observer.disconnect();
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 20);
+        };
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            observer.disconnect();
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, []);
 
     return (
-        <nav className={styles.nav}>
+        <motion.nav
+            className={`${styles.nav} ${scrolled ? styles.navScrolled : ''}`}
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        >
             <div className={styles.navInner}>
                 <a href="#" className={styles.logo}>
-                    Alex Marfo Appiah
+                    <span className={styles.logoAccent}>&gt;</span> alex.marfo
                 </a>
 
                 <ul className={styles.links}>
@@ -59,7 +73,9 @@ export default function Navbar() {
                 </ul>
 
                 <div className={styles.actions}>
-                    <ThemeToggle />
+                    <a href="#contact" className={styles.navCta}>
+                        Let&apos;s talk
+                    </a>
                     <button
                         className={styles.menuBtn}
                         onClick={() => setMenuOpen(!menuOpen)}
@@ -82,22 +98,24 @@ export default function Navbar() {
             </div>
 
             {menuOpen && (
-                <div className={styles.mobileMenu}>
+                <motion.div
+                    className={styles.mobileMenu}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.2 }}
+                >
                     {navLinks.map((link) => (
                         <a
                             key={link.href}
                             href={link.href}
-                            className={`${styles.mobileLink} ${activeSection === link.href.slice(1)
-                                ? styles.mobileLinkActive
-                                : ''
-                                }`}
+                            className={`${styles.mobileLink} ${activeSection === link.href.slice(1) ? styles.mobileLinkActive : ''}`}
                             onClick={() => setMenuOpen(false)}
                         >
                             {link.label}
                         </a>
                     ))}
-                </div>
+                </motion.div>
             )}
-        </nav>
+        </motion.nav>
     );
 }

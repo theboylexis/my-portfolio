@@ -16,30 +16,30 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: 'Alex Marfo Appiah — Junior Backend Engineer',
+  title: 'Alex Marfo Appiah — Backend Engineer',
   description:
-    'Junior backend engineer specializing in Node.js, Express, and building production-grade APIs. View my projects, skills, and get in touch.',
+    'Backend engineer specializing in Node.js, Express, and building production-grade APIs. View my projects, skills, and get in touch.',
   keywords: ['backend engineer', 'Node.js', 'Express', 'API development', 'portfolio'],
   authors: [{ name: 'Alex Marfo Appiah' }],
   openGraph: {
-    title: 'Alex Marfo Appiah — Junior Backend Engineer',
+    title: 'Alex Marfo Appiah — Backend Engineer',
     description:
-      'Junior backend engineer specializing in Node.js, Express, and building production-grade APIs.',
+      'Backend engineer specializing in Node.js, Express, and building production-grade APIs.',
     type: 'website',
     locale: 'en_US',
     siteName: 'Alex Marfo Appiah',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Alex Marfo Appiah — Junior Backend Engineer',
+    title: 'Alex Marfo Appiah — Backend Engineer',
     description:
-      'Junior backend engineer specializing in Node.js, Express, and building production-grade APIs.',
+      'Backend engineer specializing in Node.js, Express, and building production-grade APIs.',
   },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body className={`${inter.variable} ${jetbrainsMono.variable}`}>
         <Navbar />
         <main style={{ paddingTop: 'var(--nav-height)' }}>{children}</main>

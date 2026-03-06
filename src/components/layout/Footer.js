@@ -3,13 +3,10 @@ import styles from './Footer.module.css';
 export default function Footer() {
     return (
         <footer className={styles.footer}>
+            <div className={styles.divider} />
             <div className={styles.footerInner}>
                 <span className={styles.copy}>
-                    © {new Date().getFullYear()} Alex Marfo Appiah
-                </span>
-
-                <span className={styles.builtWith}>
-                    Built with Next.js · Styled with vanilla CSS
+                    <span className={styles.accent}>&gt;</span> © {new Date().getFullYear()} Alex Marfo Appiah
                 </span>
 
                 <div className={styles.socials}>

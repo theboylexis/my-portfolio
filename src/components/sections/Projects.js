@@ -1,4 +1,6 @@
-import Image from 'next/image';
+'use client';
+
+import { motion } from 'framer-motion';
 import styles from './Projects.module.css';
 
 const projects = [
@@ -9,7 +11,6 @@ const projects = [
         tags: ['Node.js', 'Express', 'PostgreSQL', 'Prisma', 'Redis', 'BullMQ', 'OpenAI API', 'Socket.io'],
         github: 'https://github.com/theboylexis/smart-doc-api',
         status: 'live',
-        preview: '/images/smart-doc-preview.png',
     },
     {
         title: 'FinLens AI',
@@ -19,13 +20,12 @@ const projects = [
         github: 'https://github.com/theboylexis/finlens',
         live: 'https://finlens-beta.vercel.app/',
         status: 'live',
-        preview: '/images/finlens-preview.png',
     },
     {
         title: 'Portfolio Website',
         description:
-            'This site — built with Next.js and vanilla CSS. Clean, minimalist design with dark/light theming, SEO optimization, and responsive layout. No templates, no UI libraries.',
-        tags: ['Next.js', 'CSS Modules', 'Vercel'],
+            'This site — built with Next.js and vanilla CSS. Dark, terminal-inspired design with Framer Motion animations, glow effects, and responsive layout. No templates, no UI libraries.',
+        tags: ['Next.js', 'CSS Modules', 'Framer Motion', 'Vercel'],
         github: 'https://github.com/theboylexis/my-portfolio',
         status: 'in-progress',
     },
@@ -49,26 +49,38 @@ function ExternalIcon() {
     );
 }
 
+const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: (i) => ({
+        opacity: 1,
+        y: 0,
+        transition: {
+            delay: i * 0.15,
+            duration: 0.6,
+            ease: [0.16, 1, 0.3, 1],
+        },
+    }),
+};
+
 export default function Projects() {
     return (
         <section id="projects" className={styles.projects}>
-            <p className={styles.label}>projects</p>
+            <p className={styles.label}>
+                <span className={styles.accent}>&gt;</span> projects
+            </p>
             <h2 className={styles.heading}>What I&apos;ve built</h2>
 
             <div className={styles.grid}>
-                {projects.map((project) => (
-                    <article key={project.title} className={styles.card}>
-                        {project.preview && (
-                            <div className={styles.previewWrapper}>
-                                <Image
-                                    src={project.preview}
-                                    alt={`${project.title} preview`}
-                                    width={680}
-                                    height={380}
-                                    className={styles.previewImage}
-                                />
-                            </div>
-                        )}
+                {projects.map((project, i) => (
+                    <motion.article
+                        key={project.title}
+                        className={styles.card}
+                        custom={i}
+                        variants={cardVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: '-40px' }}
+                    >
                         <div className={styles.cardBody}>
                             <div className={styles.cardHeader}>
                                 <h3 className={styles.cardTitle}>{project.title}</h3>
@@ -114,7 +126,7 @@ export default function Projects() {
                                 ))}
                             </div>
                         </div>
-                    </article>
+                    </motion.article>
                 ))}
             </div>
         </section>

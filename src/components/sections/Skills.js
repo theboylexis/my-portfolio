@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import styles from './Skills.module.css';
 
@@ -53,10 +56,27 @@ const skills = [
     },
 ];
 
+const badgeVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: (i) => ({
+        opacity: 1,
+        scale: 1,
+        transition: {
+            delay: i * 0.03,
+            duration: 0.4,
+            ease: [0.16, 1, 0.3, 1],
+        },
+    }),
+};
+
 export default function Skills() {
+    let globalIndex = 0;
+
     return (
         <section id="skills" className={styles.skills}>
-            <p className={styles.label}>skills</p>
+            <p className={styles.label}>
+                <span className={styles.accent}>&gt;</span> skills
+            </p>
             <h2 className={styles.heading}>Technologies I work with</h2>
 
             <div className={styles.categories}>
@@ -64,25 +84,33 @@ export default function Skills() {
                     <div key={group.category} className={styles.category}>
                         <h3 className={styles.categoryTitle}>{group.category}</h3>
                         <div className={styles.badges}>
-                            {group.items.map((item) => (
-                                <span
-                                    key={item.name}
-                                    className={`${styles.badge} ${item.invert ? 'invert-icon' : ''}`}
-                                >
-                                    {item.icon && (
-                                        <span className={styles.badgeIcon}>
-                                            <Image
-                                                src={item.icon}
-                                                alt={item.name}
-                                                width={18}
-                                                height={18}
-                                                unoptimized
-                                            />
-                                        </span>
-                                    )}
-                                    {item.name}
-                                </span>
-                            ))}
+                            {group.items.map((item) => {
+                                const idx = globalIndex++;
+                                return (
+                                    <motion.span
+                                        key={item.name}
+                                        className={`${styles.badge} ${item.invert ? 'invert-icon' : ''}`}
+                                        custom={idx}
+                                        variants={badgeVariants}
+                                        initial="hidden"
+                                        whileInView="visible"
+                                        viewport={{ once: true }}
+                                    >
+                                        {item.icon && (
+                                            <span className={styles.badgeIcon}>
+                                                <Image
+                                                    src={item.icon}
+                                                    alt={item.name}
+                                                    width={20}
+                                                    height={20}
+                                                    unoptimized
+                                                />
+                                            </span>
+                                        )}
+                                        {item.name}
+                                    </motion.span>
+                                );
+                            })}
                         </div>
                     </div>
                 ))}
