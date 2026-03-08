@@ -22,11 +22,6 @@ export default function About() {
                         <span className={styles.highlight}>Express</span> — focused on
                         clean architecture, scalable APIs, and production-ready code.
                     </p>
-                    <p>
-                        Recently shipped a document analysis API with JWT auth, Redis caching,
-                        background jobs, and OpenAI integration. I write code that is
-                        maintainable, well-structured, and ready for review.
-                    </p>
                 </div>
             </div>
         </section>

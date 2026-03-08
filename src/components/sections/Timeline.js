@@ -8,7 +8,7 @@ const timelineItems = [
         date: '2026 — Present',
         title: 'Building portfolio projects',
         description:
-            'Developing production-grade applications to demonstrate backend engineering skills. Currently building Smart Doc API and this portfolio site.',
+            'Developing production-grade applications to demonstrate backend engineering skills. Currently building this portfolio site and exploring new project ideas.',
         current: true,
     },
     {
@@ -21,7 +21,7 @@ const timelineItems = [
         date: 'Jan 2026',
         title: 'Node.js & Express deep dive',
         description:
-            'Completed comprehensive training on Node.js, Express, REST APIs, authentication patterns, and database integration with PostgreSQL and MongoDB.',
+            'Completed core training on Node.js and Express. Studied REST API design, authentication patterns, and database integration — laying the groundwork for Smart Doc API.',
     },
     {
         date: 'Dec 2025',
