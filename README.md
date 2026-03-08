@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🖥️ alexmarfo.dev — Personal Portfolio
 
-## Getting Started
+> Dark, terminal-inspired developer portfolio — built from scratch with Next.js, vanilla CSS, and Framer Motion.
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
+![CSS Modules](https://img.shields.io/badge/CSS-Modules-1572B6?logo=css3&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-12-FF0050?logo=framer&logoColor=white)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## ✨ Features
+
+- **Terminal-inspired design** — dark theme, glow effects, monospace accents (JetBrains Mono)
+- **Smooth animations** — scroll-triggered reveals and staggered fade-ins via Framer Motion
+- **Animated particle background** — custom canvas-style hero backdrop
+- **Fully responsive** — mobile-first layout with CSS Modules (zero UI libraries)
+- **SEO optimized** — Open Graph, Twitter Cards, semantic HTML, proper heading hierarchy
+- **Component architecture** — modular sections with scoped styles
+
+## 📂 Project Structure
+
+```
+src/
+├── app/
+│   ├── layout.js          # Root layout + SEO metadata
+│   ├── page.js            # Home page (Hero + all sections)
+│   ├── globals.css         # Design tokens + global styles
+│   └── page.module.css     # Hero section styles
+├── components/
+│   ├── layout/
+│   │   ├── Navbar.js       # Fixed navigation bar
+│   │   └── Footer.js       # Site footer
+│   ├── sections/
+│   │   ├── About.js        # About me (terminal card)
+│   │   ├── Projects.js     # Project cards grid
+│   │   ├── Skills.js       # Tech stack badges
+│   │   ├── Timeline.js     # Journey timeline
+│   │   └── Contact.js      # Contact links
+│   └── ui/
+│       ├── AnimatedBackground.js   # Particle hero backdrop
+│       └── SectionReveal.js        # Scroll-triggered reveal wrapper
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tech Stack
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+| Layer | Technology |
+|-------|-----------|
+| Framework | Next.js 16 (App Router) |
+| UI | React 19 |
+| Styling | CSS Modules (vanilla) |
+| Animations | Framer Motion 12 |
+| Fonts | Inter + JetBrains Mono (via `next/font`) |
+| Linting | ESLint |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 Getting Started
 
-## Learn More
+```bash
+# Clone the repo
+git clone https://github.com/theboylexis/my-portfolio.git
 
-To learn more about Next.js, take a look at the following resources:
+# Install dependencies
+npm install
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Start dev server
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Open [http://localhost:3000](http://localhost:3000) to view it locally.
 
-## Deploy on Vercel
+## 📄 License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is open source and available for reference. Built by [Alex Marfo Appiah](https://github.com/theboylexis).
