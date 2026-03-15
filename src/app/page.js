@@ -98,26 +98,18 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Sections */}
-      <SectionReveal>
-        <About />
-      </SectionReveal>
+      {/* Sections — no reveal animation on upper sections to prevent blink */}
+      <About />
 
-      <SectionReveal>
-        <Projects />
-      </SectionReveal>
+      <Projects />
 
-      <SectionReveal>
-        <ErrorBoundary fallbackMessage="The API playground couldn't load. Please refresh the page.">
-          <ApiPlayground />
-        </ErrorBoundary>
-      </SectionReveal>
+      <ErrorBoundary fallbackMessage="The API playground couldn't load. Please refresh the page.">
+        <ApiPlayground />
+      </ErrorBoundary>
 
-      <SectionReveal>
-        <ErrorBoundary fallbackMessage="GitHub stats couldn't load. Please refresh the page.">
-          <GitHubStats />
-        </ErrorBoundary>
-      </SectionReveal>
+      <ErrorBoundary fallbackMessage="GitHub stats couldn't load. Please refresh the page.">
+        <GitHubStats />
+      </ErrorBoundary>
 
       <SectionReveal>
         <Skills />
