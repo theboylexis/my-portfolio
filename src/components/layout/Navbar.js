@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import styles from './Navbar.module.css';
 
@@ -16,6 +17,14 @@ export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('');
     const [scrolled, setScrolled] = useState(false);
+    const pathname = usePathname();
+    const isHome = pathname === '/';
+
+    // Prefix hash links with "/" when not on the home page
+    const resolveHref = (href) => {
+        if (href.startsWith('#') && !isHome) return '/' + href;
+        return href;
+    };
 
     useEffect(() => {
         const sectionIds = navLinks.map((link) => link.href.slice(1));
@@ -55,7 +64,7 @@ export default function Navbar() {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
             <div className={styles.navInner}>
-                <a href="#" className={styles.logo}>
+                <a href={isHome ? '#' : '/'} className={styles.logo}>
                     <span className={styles.logoAccent}>&gt;</span> alex.marfo
                 </a>
 
@@ -63,7 +72,7 @@ export default function Navbar() {
                     {navLinks.map((link) => (
                         <li key={link.href}>
                             <a
-                                href={link.href}
+                                href={resolveHref(link.href)}
                                 className={`${styles.link} ${activeSection === link.href.slice(1) ? styles.linkActive : ''
                                     }`}
                             >
@@ -74,7 +83,7 @@ export default function Navbar() {
                 </ul>
 
                 <div className={styles.actions}>
-                    <a href="#contact" className={styles.navCta}>
+                    <a href={resolveHref('#contact')} className={styles.navCta}>
                         Let&apos;s talk
                     </a>
                     <button
@@ -108,7 +117,7 @@ export default function Navbar() {
                     {navLinks.map((link) => (
                         <a
                             key={link.href}
-                            href={link.href}
+                            href={resolveHref(link.href)}
                             className={`${styles.mobileLink} ${activeSection === link.href.slice(1) ? styles.mobileLinkActive : ''}`}
                             onClick={() => setMenuOpen(false)}
                         >
