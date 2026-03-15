@@ -35,7 +35,7 @@ const projects = [
             'This site — built with Next.js and vanilla CSS. Dark, terminal-inspired design with Framer Motion animations, glow effects, and responsive layout. No templates, no UI libraries.',
         tags: ['Next.js', 'CSS Modules', 'Framer Motion', 'Vercel'],
         github: 'https://github.com/theboylexis/my-portfolio',
-        status: 'in-progress',
+        status: 'live',
     },
 ];
 
