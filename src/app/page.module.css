@@ -64,6 +64,19 @@
   color: var(--color-accent);
 }
 
+.accentText::after {
+  content: '_';
+  animation: cursor-blink 1s step-end infinite;
+  color: var(--color-accent);
+  opacity: 0.6;
+  font-weight: var(--font-weight-normal);
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 0; }
+}
+
 .role {
   font-size: var(--text-lg);
   color: var(--color-text-secondary);
@@ -149,9 +162,14 @@
   inset: -8px;
   border-radius: 50%;
   background: var(--gradient-accent);
-  opacity: 0.15;
+  opacity: 0.1;
   filter: blur(20px);
-  animation: pulse-glow 4s ease-in-out infinite;
+  transition: opacity 0.5s ease, filter 0.5s ease;
+}
+
+.avatarWrapper:hover .avatarGlow {
+  opacity: 0.35;
+  filter: blur(25px);
 }
 
 .avatar {

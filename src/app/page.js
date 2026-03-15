@@ -1,15 +1,27 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import styles from './page.module.css';
 import AnimatedBackground from '@/components/ui/AnimatedBackground';
 import SectionReveal from '@/components/ui/SectionReveal';
+import ErrorBoundary from '@/components/ui/ErrorBoundary';
 import About from '@/components/sections/About';
 import Projects from '@/components/sections/Projects';
 import Skills from '@/components/sections/Skills';
 import Timeline from '@/components/sections/Timeline';
 import Contact from '@/components/sections/Contact';
+
+const ApiPlayground = dynamic(
+  () => import('@/components/interactive/ApiPlayground'),
+  { ssr: false }
+);
+
+const GitHubStats = dynamic(
+  () => import('@/components/interactive/GitHubStats'),
+  { ssr: false }
+);
 
 const stagger = {
   hidden: {},
@@ -93,6 +105,18 @@ export default function Home() {
 
       <SectionReveal>
         <Projects />
+      </SectionReveal>
+
+      <SectionReveal>
+        <ErrorBoundary fallbackMessage="The API playground couldn't load. Please refresh the page.">
+          <ApiPlayground />
+        </ErrorBoundary>
+      </SectionReveal>
+
+      <SectionReveal>
+        <ErrorBoundary fallbackMessage="GitHub stats couldn't load. Please refresh the page.">
+          <GitHubStats />
+        </ErrorBoundary>
       </SectionReveal>
 
       <SectionReveal>

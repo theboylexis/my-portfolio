@@ -319,6 +319,29 @@ code {
   background: var(--color-accent-dim);
 }
 
+/* --- Skip to content (a11y) --- */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-accent);
+  color: var(--color-bg);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-md);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  z-index: 200;
+  transition: top var(--transition-fast);
+  text-decoration: none;
+}
+
+.skip-to-content:focus {
+  top: var(--space-3);
+  color: var(--color-bg);
+}
+
 /* --- Focus styles --- */
 :focus-visible {
   outline: 2px solid var(--color-accent);
@@ -332,4 +355,16 @@ code {
 
 .invert-icon svg {
   filter: invert(1);
+}
+
+/* --- Reduced motion (a11y) --- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

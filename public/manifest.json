@@ -1,0 +1,21 @@
+{
+  "name": "Alex Marfo Appiah — Backend Engineer",
+  "short_name": "Alex Marfo",
+  "description": "Backend engineer specializing in Node.js, Express, and building production-grade APIs.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#00ffaa",
+  "icons": [
+    {
+      "src": "/images/avatar.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/images/avatar.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}

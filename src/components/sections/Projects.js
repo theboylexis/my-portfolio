@@ -22,6 +22,14 @@ const projects = [
         status: 'live',
     },
     {
+        title: 'MoMo Parse API',
+        description:
+            'An open-source Python parser that converts unstructured Mobile Money SMS messages from Ghana\'s major telcos (MTN, Telecel, AirtelTigo) into structured JSON. Features a three-stage pipeline with regex template matching, confidence scoring, and a REST API layer for categorization and financial profiling.',
+        tags: ['Python', 'Poetry', 'Regex', 'Docker', 'Railway', 'REST API'],
+        github: 'https://github.com/theboylexis/momo-parse-api',
+        status: 'in-progress',
+    },
+    {
         title: 'Portfolio Website',
         description:
             'This site — built with Next.js and vanilla CSS. Dark, terminal-inspired design with Framer Motion animations, glow effects, and responsive layout. No templates, no UI libraries.',
